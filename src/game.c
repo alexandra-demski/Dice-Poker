@@ -68,7 +68,7 @@ int manche(int nb){
         res = WIN;
     } else if(res_j == res_o){
         if(res_j != 0){
-            res = departage(poly_o,poly_j);
+            res = departage(ordi,joueur);
         } else {
             printf("Manche nulle.");
             res = EQUAL;
@@ -156,11 +156,36 @@ int score(int poly[], int hand[]){
 int departage(int ordi[], int joueur[]){
     /*
     * Départage les types de jet
-    * @param les deux jets (ordi et joueur)
+    * @param les deux jets
     * @return WIN, EQUAL ou LOOSE (1,0,-1)
     */
-    int max_o = ordi[nb_des-1]; // Prendre max
-    int max_j = joueur[nb_des-1];
+   int val_o[7];
+   int val_j[7];
+
+   for(int i=1; i<=6; i++){ // Remplissage du tableau de fréquences
+        val_o[i] = 0;
+        val_j[i] = 0;
+        for(int j=0; j<nb_des; j++){
+            if(ordi[j] == i){
+                val_o[i]++;
+            }
+            if(joueur[j] == i){
+                val_j[i]++;
+            }
+        }
+    }
+
+    int max_o = 1; // Prendre max
+    int max_j = 1;
+
+    for(int i=1; i<=6; i++){
+        if(val_o[max_o] <= val_o[i]){
+            max_o = i;
+        }
+        if(val_j[max_j] <= val_j[i]){
+            max_j = i;
+        }
+    }
 
     if(max_j > max_o){ // Départage avec max
         printf("Vous avez gagné.\n");
