@@ -12,7 +12,8 @@ The dice poker is a variation of the poker game that uses dices instead of cards
 
 ## Organization
 
-The project breaks down into three packages : `bin`, `include` et `src`.
+The project breaks down into three packages : `bin`, `include` and `src`.
+
 `src`: source code
 `bin`: executable files
 `include` : headers managing dependencies
