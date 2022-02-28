@@ -15,14 +15,19 @@ The dice poker is a variation of the poker game that uses dices instead of cards
 The project breaks down into three packages : `bin`, `include` and `src`.
 
 `src`: source code
+
 `bin`: executable files
+
 `include` : headers managing dependencies
 
 
 
 In order to simplify the compilation and execution of the program, a `Makefile` was draft, synthesizing complex command lines.
+
 `make` or `make all`: create executable files
+
 `make run`: launch the program
+
 `make clean`: delete all executable files
 
 It is important to note that these commands are only valid at the root of the project and on Linux machines only (or Windows machines with the necessary tools).
@@ -30,8 +35,11 @@ It is important to note that these commands are only valid at the root of the pr
 
 
 The project is divided into several files.
+
 `main.c`: is the main menu of the game, the user can either set parameters, launch a game or quit the program.
+
 `game.c`: is responsible of a game, it includes all the functions needed for a round of dice poker.
+
 `bubble.c`: is a complementary library, implementing a bubble sort.
 
 In order to get a quick overview of all the functions in a file, you can view the header files.
