@@ -1,49 +1,54 @@
 # Dice Poker
-Projet réalisé par Alexandra Demski
+
+February 2022
+
+Alexandra Demski
+
+**[Github Deposit of the project](https://github.com/alexandra-demski/Dice-Poker/)**
 
 ## Introduction
 
-Le dice poker est une variation du poker qui utilise des dés au lieu de cartes. L'objectif du projet est d'implémenter un programme permettant de joueur contre l'ordinateur. Le jeu comporte plusieurs manches, le joueur et l'ordinateur lanceront un nombre de dés préalablement configuré et tenteront d'établir des combinaisons, en relançant ou non des dés, pour gagner.
+The dice poker is a variation of the poker game that uses dices instead of cards. The goal is to implement the game allowing the user to play against the computer. The game includes multiple rounds where the player and the computer will roll a certain number of dices, a number choosed by the player beforehand, and will try to make combinations by rolling again some of the dices or none.
 
-## Organisation
+## Organization
 
-Le projet se décompose en plusieurs packages : `bin`, `include` et `src`.
-`src`: comporte le code source
-`bin`: stocke les exécutables
-`include` : gère les dépendances grâce aux headers
-
-
-
-Afin de faciliter la mise en place et l'exécution du programme, un fichier `Makefile` a été rédigé, qui permet de synthétiser des commandes compliquées. 
-`make` ou `make all`: les exécutables sont crées
-`make run`: le programme est lancé
-`make clean`: les exécutables sont supprimés
-
-Il est important à noter que ces commandes ne sont valides qu'à la source du projet sur une machine Linux (ou Windows avec les outils nécessaires installés).
+The project breaks down into three packages : `bin`, `include` et `src`.
+`src`: source code
+`bin`: executable files
+`include` : headers managing dependencies
 
 
 
-Le programme est divisé en plusieurs fichiers, permettant de diviser le code source de façon logique.
-`main.c`: est le cœur du programme, il met en place l'interface permettant de gérer les paramètres, jouer une partie ou quitter le jeu
-`game.c`: est le responsable d'une partie, il comporte toutes les fonctions nécessaires à son bon déroulement
-`bubble.c`: est une bibliothèque annexe, elle implémente un tri de tableau de type bubble sort
+In order to simplify the compilation and execution of the program, a `Makefile` was draft, synthesizing complex command lines.
+`make` or `make all`: create executable files
+`make run`: launch the program
+`make clean`: delete all executable files
 
-Pour avoir un rapide aperçu des utilités de leurs fonctions, il est posible de consulter le header de chaque fichier (hors le main)
+It is important to note that these commands are only valid at the root of the project and on Linux machines only (or Windows machines with the necessary tools).
 
 
 
-## Fonctionnalités
+The project is divided into several files.
+`main.c`: is the main menu of the game, the user can either set parameters, launch a game or quit the program.
+`game.c`: is responsible of a game, it includes all the functions needed for a round of dice poker.
+`bubble.c`: is a complementary library, implementing a bubble sort.
 
-Le projet implémente différentes fonctionnalités répartie en fonctions.
+In order to get a quick overview of all the functions in a file, you can view the header files.
 
-### Le menu principal
 
-Le menu principal, stocké dans le fichier `main.c` débute par un message d'accueil et l'initialisation des différentes valeurs, notamment le timeur permettant d'obtenir des valeurs aléatoires : `srand(time(NULL));`. C'est lors de cette étape que la fonction `paramètre` demande au joueur de saisir le nombre de dés qui seront jouer lors de la partie lancée automatiquement après. A la fin de la partie, le joueur a la possibilité de quitter le programme, rejouer une partie ou modifier les paramètres. Il fait savoir au programme son choix à l'aide d'un chiffre de 1 à 3. Une réponse non conforme renverra le choix des option à l'utilisateur.
 
-### Une partie de dice poker
+## Functionnalities
 
-Une partie de dice poker est composée d'un certain nombre de manche. Lorsqu'une manche est lancée, celle-ci commence par attribuer un jet aléatoire à chaque participant (le joueur et l'ordinateur). Pour améliorer la lisibilité, chaque jet est trié avant d'être analysé. Lorsque les informations sur chaque jet sont affichées (le propriétaire, sa composante et les différents pattern qui le compose), le joueur a la possibilité de rejouer des dés. Pour cela, il indique une série de 0 (laisser) et 1 (relancer) pour définir les dés à relancer, dans l'ordre qu'ils apparaissent à la console. Si le joueur ne souhaite pas rejouer ses dés, il peut simplement taper 0. Si le joueur souhaite relancer tous ses dés, il peut simplement taper 1. Une fois satisfait (ou le nombre de relance épuisé) le gagnant est élu et la manche suivante débute.
+The project implements several functionnalities
 
-### Le tri bubble sort
+### The main menu
 
-Afin de rendre le programme plus efficace, la fonctionnalité de tri a été améliorée en implémentant le bubble sort. Le concept est très simple : tant que le tableau n'est pas trié, on échange de places deux voisins qui ne sont pas dans l'ordre croissant. Cela permet de diminuer les opérations à réaliser sur le tableau.
+The main menu is implemented in the `main.c` file. It starts with a welcoming message and the initialization of several variables, including a timer used to get random values : `srand(time(NULL));`. Before the beggining of a round, the player can choose the number of dice to play with, thanks to the `parametre` function. Then, a round is automatically launched. When the number of rounds reaches the maximum, the game ends and the player can either play again, change the parameters or quit the program by tapping 1, 2 or 3. If an incorrect answer is given, the program will ask the question again.
+
+### A round of dice poker
+
+A game of dice poker is divided into several rounds. Each round begins with a random dice roll for each participant (the player and the computer). In order to enhance the lisibility, each dice roll is arranged in ascending order before being analyzed by the program. When all the nedded information about a dice roll is displayed (its owner, composition and pattern), the player has the possibility to roll some dices again. In order to do so, the player has to type a serie of 0 (leave be) and 1 (roll again) to define the dices to reroll, in the same ordre as they were put in the command line console. If the player doesn't want to change its roll dice, they can simply type 0. If they want to reroll all the dices, they can simply type 1. After changing the dices, the winner is selected and the next round starts.
+
+### The bubble sort
+
+In order to enhance the efficiency of the project, the arrays are sorted with a bubble sort. The concept is pretty simple : while the array is not sorted, neighboring cells are swapped if they aren't in the correct order. It reduces the number of operations needed to sort an array.
