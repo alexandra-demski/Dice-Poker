@@ -56,7 +56,7 @@ The main menu is implemented in the `main.c` file. It starts with a welcoming me
 
 ### A round of dice poker
 
-A game of dice poker is divided into several rounds. Each round begins with a random dice roll for each participant (the player and the computer). In order to enhance the lisibility, each dice roll is arranged in ascending order before being analyzed by the program. When all the nedded information about a dice roll is displayed (its owner, composition and pattern), the player has the possibility to roll some dices again. In order to do so, the player has to type a serie of 0 (leave be) and 1 (roll again) to define the dices to reroll, in the same ordre as they were put in the command line console. If the player doesn't want to change its roll dice, they can simply type 0. If they want to reroll all the dices, they can simply type 1. After changing the dices, the winner is selected and the next round starts.
+A game of dice poker is divided into several rounds. Each round begins with a random dice roll for each participant (the player and the computer). In order to enhance the lisibility, each dice roll is arranged in ascending order before being analyzed by the program. When all the nedded information about a dice roll is displayed (its owner, composition and pattern), the player has the possibility to roll some dices again. In order to do so, the player has to type a serie of 0 (leave be) and 1 (roll again) to define the dices to reroll, in the same ordre as they were put in the command line console. If the player doesn't want to change its dice roll, they can simply type 0. If they want to reroll all the dices, they can simply type 1. After changing the dices, the winner is selected and the next round starts.
 
 ### The bubble sort
 
